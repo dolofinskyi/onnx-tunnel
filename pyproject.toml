@@ -1,7 +1,44 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
 [project]
 name = "ml-tunnel"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.1a"
+description = "FastAPI server for ONNX models"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.9, <3.14"
+dependencies = [
+    "annotated-doc==0.0.4",
+    "annotated-types==0.7.0",
+    "anyio==4.12.1",
+    "click==8.3.1",
+    "colorama==0.4.6",
+    "coloredlogs==15.0.1",
+    "fastapi==0.128.0",
+    "flatbuffers==25.12.19",
+    "h11==0.16.0",
+    "httptools==0.7.1",
+    "humanfriendly==10.0",
+    "idna==3.11",
+    "mpmath==1.3.0",
+    "numpy==2.4.2",
+    "onnxruntime==1.23.2",
+    "packaging==26.0",
+    "protobuf==6.33.5",
+    "pydantic==2.12.5",
+    "pydantic-core==2.41.5",
+    "pyreadline3==3.5.4",
+    "python-dotenv==1.2.1",
+    "pyyaml==6.0.3",
+    "starlette==0.50.0",
+    "sympy==1.14.0",
+    "typing-extensions==4.15.0",
+    "typing-inspection==0.4.2",
+    "uvicorn==0.40.0",
+    "watchfiles==1.1.1",
+    "websockets==16.0"
+]
+
+[project.scripts]
+ml-tunnel = "ml_tunnel.cli:main"
