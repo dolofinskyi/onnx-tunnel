@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ml-tunnel"
+name = "onnx-tunnel"
 version = "0.0.1a"
 description = "FastAPI server for ONNX models"
 readme = "README.md"
@@ -41,4 +41,4 @@ dependencies = [
 ]
 
 [project.scripts]
-ml-tunnel = "ml_tunnel.cli:main"
+onnx-tunnel = "onnx_tunnel.cli:main"
