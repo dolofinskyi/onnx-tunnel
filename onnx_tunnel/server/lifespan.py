@@ -2,18 +2,14 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from ..registry import Registry
-from ..models import BaseModel
-from ..pipelines import BasePipeline
+from ..registry import ModelRegistry, PipelineRegistry
 
-@asynccontextmanager
-async def app_lifespan(app: FastAPI):
-    model_registry = Registry[BaseModel]()
-    pipeline_registry = Registry[BasePipeline]()
+def create_lifespan(args):
 
-    app.state.model_registry = model_registry
-    app.state.pipeline_registry = pipeline_registry
-
-    app.state.model = model_registry.create(app.state.backend, model_path=app.state.model_path)
-    app.state.pipeline = pipeline_registry.create(app.state.backend)
-    yield
+    @asynccontextmanager
+    async def lifespan(app: FastAPI):
+        app.state.model = ModelRegistry.create(args.backend, model_path=args.model_path)
+        app.state.pipeline = PipelineRegistry.create(args.backend)
+        yield
+    
+    return lifespan

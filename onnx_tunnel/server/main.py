@@ -1,19 +1,17 @@
 from fastapi import FastAPI
 
-from ..registry import RegistryTypes
 
 def create_app(args) -> FastAPI:
     from .routers import index_router 
-    from .lifespan import app_lifespan
+    from .lifespan import create_lifespan
+
+    lifespan = create_lifespan(args)
 
 
-    app = FastAPI(lifespan=app_lifespan)
+    app = FastAPI(lifespan=lifespan)
 
 
     app.include_router(index_router)
 
-
-    app.state.model_path = args.model
-    app.state.backend = RegistryTypes(args.backend)
 
     return app

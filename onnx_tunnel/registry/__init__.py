@@ -1,2 +1,2 @@
-from .base import Registry
-from .types import RegistryTypes
+from .model import ModelRegistry
+from .pipeline import PipelineRegistry
