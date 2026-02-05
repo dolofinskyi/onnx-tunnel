@@ -21,7 +21,7 @@ def parse_args():
         epilog="""
                 Usage examples:
                 %(prog)s --model model.onnx
-                %(prog)s --model model.onnx --provider onnx --port 8080 --host 127.0.0.1
+                %(prog)s --model model.onnx --backend onnx --port 8080 --host 127.0.0.1
             """
     )
 
@@ -33,10 +33,10 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--provider", 
+        "--backend", 
         type=str,
         default="onnx",
-        help="Model provider (default: onnx)"
+        help="Model backend (default: onnx)"
     )
 
     parser.add_argument(

@@ -14,6 +14,6 @@ def create_app(args) -> FastAPI:
 
 
     app.state.model_path = args.model
-    app.state.provider = RegistryTypes(args.provider)
+    app.state.backend = RegistryTypes(args.backend)
 
     return app
