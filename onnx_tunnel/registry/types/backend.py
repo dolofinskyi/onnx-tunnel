@@ -1,4 +1,4 @@
 from enum import Enum
 
-class RegistryTypes(Enum):
+class Backend(Enum):
     ONNX = "onnx"
